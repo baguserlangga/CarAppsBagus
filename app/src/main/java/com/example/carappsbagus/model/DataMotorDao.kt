@@ -7,11 +7,11 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface DataMobil {
+interface DataMotorDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTransaksi(transaksiQrs: KendaraanModel)
+    suspend fun insertTransaksi(kendaraanModel: KendaraanModel)
     @Delete
-    suspend fun deleteTransaksi(transaksiQrs: KendaraanModel)
+    suspend fun deleteTransaksi(kendaraanModel: KendaraanModel)
     @Query("SELECT * FROM kendaraan ORDER BY id ASC")
     fun getTransaksiOrderdById(): kotlinx.coroutines.flow.Flow<List<KendaraanModel>>
 }
